@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/exercises-arthur.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto"
+        />
+
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
+    </head>
+    <body>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: 'AIzaSyB9l86GgrlST_kNlUhVqLwAHXgE3Ljph8I',
+                authDomain: 'basic-chat-3f218.firebaseapp.com',
+                databaseURL: 'https://basic-chat-3f218.firebaseio.com',
+                projectId: 'basic-chat-3f218',
+                storageBucket: 'basic-chat-3f218.appspot.com',
+                messagingSenderId: '535634716548',
+                appId: '1:535634716548:web:7ac9908c45dff2c1699fd1',
+            };
+            // Initialize Firebase
+        </script>
+        <header></header>
+
+        <div class="flex p-6">
+            <form class="flex-auto pl-6">
+                <div
+                    class="flex flex-col flex-wrap items-baseline justify-center"
+                >
+                    <h1 class="w-full flex-none font-semibold mb-4">
+                        Exercises
+                    </h1>
+                    <div
+                        class="shownSentence text-4xl mb-4 leading-7 font-bold text-purple-600 self-center"
+                    >
+                        The questions will be shown here.
+                    </div>
+                    <div
+                        class="shownAnswer text-4xl mb-4 leading-7 font-bold text-blue-600 self-center"
+                    >
+                        The answers will be shown here.
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mb-4 text-sm font-semibold">
+                    <div class="flex-auto flex space-x-3 justify-around">
+                        <button
+                            class="startButton w-1/2 flex items-center justify-center rounded-full bg-purple-50 text-purple-700 text-xl"
+                            type="button"
+                            onclick="pushButton()"
+                        >
+                            Start your exercise
+                        </button>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">
+                    Free shipping on all continental US orders.
+                </p>
+            </form>
+        </div>
+        <footer></footer>
+
+        <script src="data/exercises-arthur-data.js"></script>
+        <script src="js/exercises-arthur-main.js"></script>
+    </body>
+</html>
