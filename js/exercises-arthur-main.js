@@ -9,8 +9,18 @@ firebase.initializeApp({
 });
 
 var firestore = firebase.firestore();
+const commonRef = firestore.collection('samples');
 const questionsRef = firestore.doc('samples/questions');
 const answersRef = firestore.doc('samples/answers');
+const arrayIndexRef = firestore.doc('samples/arrayIndex');
+
+commonRef.onSnapshot(function (doc) {
+    if (doc && doc.exists) {
+        const myData = doc.data(); //extract the contents of the document as an object
+
+        shownSentence.innerText = myData;
+    }
+});
 
 const dataArrayUpdated = [
     { sentence: 'question1', answer: 'yes or no?' },
@@ -69,23 +79,26 @@ const pushButton = () => {
     startButton.disabled = true;
     dataArrayUpdated.map((element, index) => {
         setTimeout(() => {
+            arrayIndexRef.set({
+                arrayIndex: index,
+            });
             questionsRef.onSnapshot(function (doc) {
                 if (doc && doc.exists) {
                     const myData = doc.data(); //extract the contents of the document as an object
-                    console.log(myData[index]);
+
                     shownSentence.innerText = myData[index];
                 }
             });
             answersRef.onSnapshot(function (doc) {
                 if (doc && doc.exists) {
                     const myData = doc.data(); //extract the contents of the document as an object
-                    console.log(myData[index]);
+
                     shownAnswer.innerText = myData[index];
                 }
             });
             if (index === 14) {
                 startButton.disabled = false;
             }
-        }, 2000 * index);
+        }, 2500 * index);
     });
 };
