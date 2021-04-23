@@ -77,6 +77,7 @@ const pushButton = () => {
 
 const pushButton = () => {
     startButton.disabled = true;
+
     dataArrayUpdated.map((element, index) => {
         setTimeout(() => {
             arrayIndexRef.set({
