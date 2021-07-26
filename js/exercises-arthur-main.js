@@ -14,6 +14,7 @@ const questionsRef = firestore.doc('samples/questions');
 const answersRef = firestore.doc('samples/answers');
 const arrayIndexRef = firestore.doc('samples/arrayIndex');
 
+
 commonRef.onSnapshot(function (doc) {
     if (doc && doc.exists) {
         const myData = doc.data(); //extract the contents of the document as an object
