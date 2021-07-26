@@ -105,6 +105,6 @@ const pushButton = () => {
             if (index === 20) {
                 startButton.disabled = false;
             }
-        }, 250 * index);
+        }, 2500 * index);
     });
 };
