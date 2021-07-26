@@ -97,7 +97,7 @@ const pushButton = () => {
                     shownAnswer.innerText = myData[index];
                 }
             });
-            if (index === 14) {
+            if (index === 19) {
                 startButton.disabled = false;
             }
         }, 2500 * index);
