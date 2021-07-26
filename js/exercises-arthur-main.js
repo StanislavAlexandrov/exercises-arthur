@@ -14,7 +14,6 @@ const questionsRef = firestore.doc('samples/questions');
 const answersRef = firestore.doc('samples/answers');
 const arrayIndexRef = firestore.doc('samples/arrayIndex');
 
-
 commonRef.onSnapshot(function (doc) {
     if (doc && doc.exists) {
         const myData = doc.data(); //extract the contents of the document as an object
@@ -39,6 +38,11 @@ const dataArrayUpdated = [
     { sentence: 'question13', answer: 'yes or no?' },
     { sentence: 'question14', answer: 'yes or no?' },
     { sentence: 'question15', answer: 'yes or no?' },
+    { sentence: 'question16', answer: 'yes or no?' },
+    { sentence: 'question17', answer: 'yes or no?' },
+    { sentence: 'question18', answer: 'yes or no?' },
+    { sentence: 'question19', answer: 'yes or no?' },
+    { sentence: 'question20', answer: 'yes or no?' },
 ];
 
 const startApp = () => {
@@ -48,7 +52,7 @@ const startApp = () => {
             shownSentence.innerText = element.sentence;
             shownAnswer.innerText = element.answer;
 
-            if (index === 19) {
+            if (index === 20) {
                 startButton.disabled = false;
             }
         }, 2000 * index);
@@ -98,9 +102,9 @@ const pushButton = () => {
                     shownAnswer.innerText = myData[index];
                 }
             });
-            if (index === 19) {
+            if (index === 20) {
                 startButton.disabled = false;
             }
-        }, 2500 * index);
+        }, 250 * index);
     });
 };
