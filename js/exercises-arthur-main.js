@@ -47,7 +47,7 @@ const startApp = () => {
             shownSentence.innerText = element.sentence;
             shownAnswer.innerText = element.answer;
 
-            if (index === 14) {
+            if (index === 19) {
                 startButton.disabled = false;
             }
         }, 2000 * index);
