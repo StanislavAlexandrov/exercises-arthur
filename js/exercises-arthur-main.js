@@ -43,42 +43,10 @@ const dataArrayUpdated = [
     { sentence: 'question18', answer: 'yes or no?' },
     { sentence: 'question19', answer: 'yes or no?' },
     { sentence: 'question20', answer: 'yes or no?' },
+    { sentence: 'question21', answer: 'yes or no?' },
 ];
 
-const startApp = () => {
-    startButton.disabled = true;
-    dataArrayUpdated.map((element, index) => {
-        setTimeout(() => {
-            shownSentence.innerText = element.sentence;
-            shownAnswer.innerText = element.answer;
-
-            if (index === 20) {
-                startButton.disabled = false;
-            }
-        }, 2000 * index);
-    });
-};
-/* 
-const pushButton = () => {
-    dataArrayUpdated.map((element, index) => {
-        setTimeout(() => {
-            arrayIndexRef
-                .set({
-                    arrayIndex: index,
-                })
-                .then(function () {
-                    arrayIndexRef.onSnapshot(function (doc) {
-                        if (doc && doc.exists) {
-                            const myData = doc.data(); //extract the contents of the document as an object
-                            console.log(myData.arrayIndex);
-                            shownSentence.innerText =
-                                dataArrayUpdated[myData.arrayIndex].sentence;
-                        }
-                    });
-                });
-        }, 2000 * index);
-    });
-}; */
+console.log(dataArrayUpdated.length);
 
 const pushButton = () => {
     startButton.disabled = true;
@@ -88,6 +56,7 @@ const pushButton = () => {
             arrayIndexRef.set({
                 arrayIndex: index,
             });
+
             questionsRef.onSnapshot(function (doc) {
                 if (doc && doc.exists) {
                     const myData = doc.data(); //extract the contents of the document as an object
@@ -102,7 +71,7 @@ const pushButton = () => {
                     shownAnswer.innerText = myData[index];
                 }
             });
-            if (index === 20) {
+            if (index >= dataArrayUpdated.length - 1) {
                 startButton.disabled = false;
             }
         }, 2500 * index);
