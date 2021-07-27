@@ -46,10 +46,18 @@ const dataArrayUpdated = [
     { sentence: 'question21', answer: 'yes or no?' },
 ];
 
-console.log(dataArrayUpdated.length);
+const buttonClasses = [
+    'bg-blue-200',
+    'hover:bg-red-200',
+    'hover:-translate-y-1',
+    'hover:scale-105',
+    'text-xl',
+];
 
 const pushButton = () => {
     startButton.disabled = true;
+    startButton.classList.remove(...buttonClasses);
+    startButton.classList.add('opacity-0');
 
     dataArrayUpdated.map((element, index) => {
         setTimeout(() => {
@@ -73,6 +81,8 @@ const pushButton = () => {
             });
             if (index >= dataArrayUpdated.length - 1) {
                 startButton.disabled = false;
+                startButton.classList.add(...buttonClasses);
+                startButton.classList.remove('opacity-0');
             }
         }, 2500 * index);
     });
